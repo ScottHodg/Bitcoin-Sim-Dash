@@ -59,3 +59,13 @@ with right:
 
 st.write("---")
 st.dataframe(df.head(10), use_container_width=True)
+
+# --- HIDE STREAMLIT ELEMENTS ---
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
