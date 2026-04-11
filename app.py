@@ -56,7 +56,13 @@ with right:
     day_order = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
     fig_d = px.bar(daily, x='day_name', y='avg_volume', template='plotly_dark', category_orders={"day_name": day_order})
     st.plotly_chart(fig_d, use_container_width=True)
-
+#4
+st.divider()
+st.subheader("Minute-Level Activity (Systemic Check)")
+st.write("This chart identifies volume spikes within the hour (0-59 minutes). Peaks often indicate automated algorithmic trading or 'top of the hour' liquidations.")
+fig_m = px.line(minute, x='minute', y='avg_volume', template='plotly_dark', markers=True, color_discrete_sequence=['#00CC96'])
+fig_m.update_layout(xaxis=dict(tickmode='linear', tick0=0, dtick=5))
+st.plotly_chart(fig_m, use_container_width=True)
 st.write("---")
 st.dataframe(df.head(10), use_container_width=True)
 
